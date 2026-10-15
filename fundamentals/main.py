@@ -22,7 +22,7 @@ prompt = generatePrompt()
 llm = ChatGroq(
     model="openai/gpt-oss-20b",
     temperature=0.2,
-   
+
     api_key=os.getenv("GROQ_API_KEY"),
 )
 parser = StrOutputParser()
