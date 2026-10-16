@@ -1,0 +1,67 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+
+api_key=os.getenv("GROQ_API_KEY")
+
+model = ChatGroq(
+    model="openai/gpt-oss-20b",
+    temperature=0.2,
+    api_key=api_key,
+    reasoning_effort=None,
+    
+)
+
+
+paragraph="""Trees are the ultimate lifelines of our planet, functioning as Earth's natural lungs by continuously producing oxygen and purifying the air we breathe. They stabilize our environment by preventing soil erosion, regulating rainfall patterns, and providing critical food and habitat for countless species of wildlife. As rapid urbanization and deforestation severely threaten these vital ecosystems, saving trees through active planting, protecting existing forests, and minimizing paper consumption has become an absolute necessity to secure a healthy, green future."""
+
+
+# template=ChatPromptTemplate(
+#     [
+#      ("system","You are a text analyzer agent that will identify the title of the text provided "
+#       ),
+
+#       ( "human" , "Trees are the backbone of life on Earth, acting as the planet s lungs, climate regulators, and foundational ecosystems. They absorb carbon dioxide, release essential oxygen, prevent soil erosion, and provide critical habitats for wildlife while supplying humans with clean air, water, shade, and natural resources." ),
+
+#       ("ai","Nature’s Living Shield: The Crucial Role of Trees"),
+
+#       ("human","{text}"),
+
+#     ]
+# )
+
+
+template=ChatPromptTemplate(
+    [
+        ("system","You are a text analyzer agent that will identify the title of the text provided "),
+        ("human","{text}"),
+
+    ]
+)
+
+# message=template.invoke({
+#     "text": paragraph
+# })
+
+
+parser=StrOutputParser()
+
+result=template|model|parser
+
+f_result=result.invoke({
+    "text": paragraph
+})
+print(f_result)
+
+# res=model.invoke(message)
+# print(res.content)
+
+# # try:
+# #   answer=parser.invoke(result.content)
+# #   print(answer)
+# # except Exception as e:
+# #   print(f"ERROR : {e}")
