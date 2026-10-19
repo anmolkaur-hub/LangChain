@@ -1,81 +1,66 @@
 import os
 import json
 from dotenv import load_dotenv
-load_dotenv()
-
 from langchain_groq import ChatGroq
-from templates import template_generate, template_rewrite
 from langchain_core.output_parsers import StrOutputParser
 
+from templates import template_generate, template_rewrite
 
 
-api_key=os.getenv("GROQ_API_KEY")
+load_dotenv()
+
 
 model = ChatGroq(
     model="openai/gpt-oss-20b",
     temperature=0.2,
-    api_key=api_key,
-    reasoning_effort=None,
-    
+    api_key=os.getenv("GROQ_API_KEY")
 )
 
-parser=StrOutputParser()
+parser = StrOutputParser()
 
 
-response1=template_generate|model|parser
-response2=template_rewrite|model|parser
+generate_chain = template_generate | model | parser
+rewrite_chain = template_rewrite | model | parser
 
 
-generated_email = response1.invoke({
-"recipient":"Customer support",
-"user":"Anmol Kaur",
-"tone":"Formal",
-"subject":"technical support request"
-})
+#Generate email
+def generate_email():
+    response = generate_chain.invoke({
+        "recipient": "Customer support",
+        "user": "Anmol Kaur",
+        "tone": "Formal",
+        "subject": "Technical support request"
+    })
+
+    # Remove Markdown code fences if the model adds them
+    response = response.strip()
+    response = response.removeprefix("```json").strip()
+    response = response.removesuffix("```").strip()
+
+    email_data = json.loads(response)
+
+    print("\nGenerated Email")
+    print("--------------------")
+    print("Recipient:", email_data["recipient"])
+    print("Subject:", email_data["subject"])
+    print("Body:", email_data["body"])
 
 
-generated_email = generated_email.strip()
+# Rewrite an existing email
+def rewrite_email():
+    with open("email.txt", "r", encoding="utf-8") as file:
+        email = file.read()
 
-if generated_email.startswith("```json"):
-    generated_email = generated_email[len("```json"):].strip()
+    response = rewrite_chain.invoke({
+        "email": email,
+        "tone": "Funny"
+    })
 
-if generated_email.endswith("```"):
-    generated_email = generated_email[:-3].strip()
-
-
-new_email = json.loads(generated_email)
-print("Generated Email Contents___________")
-print("***************************")
-
-new_email=json.loads(generated_email)
-
-print(new_email['recipient'])
-print(new_email['subject'])
-print(new_email['body'])
+    print("\nRewritten Email")
+    print("--------------------")
+    print(response)
 
 
-
-
-email=""
-with open('email.txt', 'r') as file:
-    email = file.read()
-
-rewrite_email=response2.invoke({
-    "email":email,
-    "tone":"funny"
-})
-
-
-print("Rewritten Email___________")
-print("***************************")
-print(rewrite_email)
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    generate_email()
+    rewrite_email()
