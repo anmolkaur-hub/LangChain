@@ -1,36 +1,51 @@
 from langchain_core.prompts import ChatPromptTemplate
 
-template_generate=ChatPromptTemplate(
-    [
-        ("system","You are a smart email assistant that will generate emails based on the users provided information that will identify the title of the text provided "
-        ".Just follow what's told.Give  a dictionary"),
-        ("human",
-         """Generate an Email-
-        recipient:{recipient},
-        user:{user}  ,
-        tone:{tone}, 
-        subject:{subject},
-        
-        """),
-        
-    ]
-)
+
+# Template for generating an email
+template_generate = ChatPromptTemplate.from_messages([
+    (
+        "system",
+        """
+        You are a professional email assistant.
+
+        Generate an email using the information provided.
+        Return ONLY a valid JSON object with these keys:
+        - recipient
+        - subject
+        - body
+
+        Do not include Markdown code fences or extra text.
+        """
+    ),
+    (
+        "human",
+        """
+        Recipient: {recipient}
+        Sender: {user}
+        Tone: {tone}
+        Subject: {subject}
+        """
+    )
+])
 
 
+# Template for rewriting an email
+template_rewrite = ChatPromptTemplate.from_messages([
+    (
+        "system",
+        """
+        You are an expert email editor.
+        Rewrite emails according to the requested tone.
+        Preserve the original meaning and important details.
+        Return only the rewritten email.
+        """
+    ),
+    (
+        "human",
+        """
+        Rewrite the following email in a {tone} tone:
 
-
-template_rewrite=ChatPromptTemplate(
-[
-    ("system","You are an email expert that will rewrite the emails in an "
-    "improved way based on th information provided by user ."),
-    ("human","""Rewrite this email:{email} in {tone}
-        
-    """)
-
-
-
-]
-
-
-
-)
+        {email}
+        """
+    )
+])
