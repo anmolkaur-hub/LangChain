@@ -1,0 +1,148 @@
+SCENARIO LIBRARY: BILLING, PAYMENTS AND REFUNDS
+===============================================
+Fictional demonstration content. Not an official company policy.
+Scenarios apply KB-04 (refund and return), KB-07 (billing), KB-08 (privacy)
+and KB-02 (escalation).
+
+DOCUMENT ID: KB-13
+CATEGORY: Scenarios, billing and refunds
+TOPICS COVERED: duplicate charge, payment declined, refund status, customer offers card number, refund timing questions, disputed charge, bank posting delay
+RELATED DOCUMENTS: KB-02, KB-04, KB-07, KB-08, KB-10
+
+Format: CUSTOMER SAYS / RIGHT APPROACH / SAMPLE REPLY / AVOID / ESCALATE?
+
+============================================================
+SCENARIO 1: CHARGED TWICE
+============================================================
+CUSTOMER SAYS: "I was charged twice for one order."
+RIGHT APPROACH:
+  1. Apologize.
+  2. Ask for the order/reference number and the dates and amounts, using
+     approved secure channels.
+  3. Do not ask for the full card number, security code, password, or code.
+  4. Explain that billing support must review before confirming a duplicate.
+  5. Escalate for specialist review.
+SAMPLE REPLY: "I'm sorry about that. I can't confirm yet whether it's a
+  duplicate because billing support needs to review it. Could you share the
+  order number and the dates and amounts you see? Please don't send your full
+  card number or security code."
+AVOID: confirming the duplicate; promising a reversal or a timeframe.
+ESCALATE? Yes.
+
+============================================================
+SCENARIO 2: CUSTOMER OFFERS THEIR FULL CARD NUMBER
+============================================================
+CUSTOMER SAYS: "Do you want me to type my whole card number so you can find
+  it?"
+RIGHT APPROACH: Decline politely. Explain that order/reference number, date,
+  and amount are enough. Do not repeat or record any card digits that were
+  shared. Follow the platform's approved handling process.
+SAMPLE REPLY: "Please don't share your full card number. The order number, the
+  date, and the amount are enough for me to look into it."
+ESCALATE? Only if the underlying issue is a disputed charge.
+
+============================================================
+SCENARIO 3: PAYMENT DECLINED AT CHECKOUT
+============================================================
+CUSTOMER SAYS: "My payment keeps getting declined."
+RIGHT APPROACH: Ask the customer to check the payment method details in the
+  official checkout flow and whether their bank reported a decline. Suggest
+  contacting the payment provider or bank when appropriate. Escalate if the
+  checkout service appears faulty.
+SAMPLE REPLY: "Could you double-check the payment details in the official
+  checkout page and see whether your bank flagged it? Please don't share your
+  card details here."
+AVOID: asking for card number or security code in chat.
+ESCALATE? If the checkout appears faulty.
+
+============================================================
+SCENARIO 4: DECLINED ON A CARD THAT WORKS ELSEWHERE
+============================================================
+CUSTOMER SAYS: "The same card works everywhere else. Your checkout is broken."
+RIGHT APPROACH: Do not argue. Acknowledge, ask them to re-check the details
+  in the official checkout flow, suggest asking their bank whether the
+  payment was blocked, and escalate if there are signs of a checkout fault
+  (for example, multiple customers or repeated failures).
+ESCALATE? If the checkout service appears faulty or the failure repeats.
+
+============================================================
+SCENARIO 5: WHERE IS MY REFUND?
+============================================================
+CUSTOMER SAYS: "Where's my refund?"
+RIGHT APPROACH:
+  1. Verify whether a refund was approved and when it was processed.
+  2. Use the refund policy for the estimate: typically 5 to 10 business days
+     after the returned item is received and inspected.
+  3. Mention that bank posting times may vary.
+SAMPLE REPLY: "Let me check whether it was approved and when it was
+  processed. Approved refunds are typically processed within 5 to 10 business
+  days after the item is received and inspected. Your bank's posting time may
+  vary."
+AVOID: guaranteeing a posting date; quoting any other timeframe.
+ESCALATE? If beyond the typical range or disputed.
+
+============================================================
+SCENARIO 6: REFUND NOT YET APPROVED
+============================================================
+CUSTOMER SAYS: "I sent the item back. Why haven't I been refunded?"
+RIGHT APPROACH: Verify that the item was received and inspected and whether
+  the refund was approved. If still in review, explain that eligibility must
+  be checked and no approval can be promised.
+ESCALATE? If the customer disputes the outcome.
+
+============================================================
+SCENARIO 7: REFUND TIMELINE SEEMS DIFFERENT FROM WHAT A FRIEND SAID
+============================================================
+CUSTOMER SAYS: "A friend told me refunds work on a different timeline. Which
+  is right?"
+RIGHT APPROACH: Use only the approved refund policy: return requests within
+  14 calendar days of delivery, and approved refunds typically processed
+  within 5 to 10 business days after the returned item is received and
+  inspected. Do not repeat or confirm other figures.
+SAMPLE REPLY: "I can only go by our refund policy: an approved refund is
+  typically processed within 5 to 10 business days after the returned item
+  is received and inspected, and bank posting times may vary."
+
+============================================================
+SCENARIO 8: DISPUTED CHARGE
+============================================================
+CUSTOMER SAYS: "I don't recognize this charge."
+RIGHT APPROACH: Ask for the order/reference number, date, and amount via
+  approved channels. Do not ask for card details. Explain that billing
+  support must review. Escalate disputed or unclear charges.
+ESCALATE? Yes.
+
+============================================================
+SCENARIO 9: CUSTOMER DEMANDS AN IMMEDIATE REFUND
+============================================================
+CUSTOMER SAYS: "Refund me right now."
+RIGHT APPROACH: Stay calm. Explain what can be checked now (order, delivery
+  date, return eligibility). Do not promise approval or an instant refund.
+  A refund is processed after the item is received and inspected and the
+  refund is approved.
+ESCALATE? If the customer requests an exception.
+
+============================================================
+SCENARIO 10: "WHAT PAYMENT INFORMATION CAN I SAFELY SHARE?"
+============================================================
+RIGHT APPROACH: Order/reference number, date, amount, and a short description
+  through approved channels. Never full card number, security code, password,
+  or one-time code.
+
+============================================================
+SUMMARY TABLE
+============================================================
+ #  | SCENARIO                   | KEY RULE                         | ESCALATE?
+----|----------------------------|----------------------------------|-----------
+ 1  | Charged twice              | Billing review first            | Yes
+ 2  | Offers full card number    | Decline; use order/date/amount  | If disputed
+ 3  | Payment declined           | Check official checkout, bank   | If faulty
+ 4  | Works elsewhere            | Do not argue                    | If repeated
+ 5  | Where is my refund         | 5 to 10 business days           | If overdue
+ 6  | Refund not approved        | Eligibility review              | If disputed
+ 7  | Different timeline claim   | Use approved policy only        | No
+ 8  | Disputed charge            | Billing review                  | Yes
+ 9  | Demands immediate refund   | No promises                     | Exceptions
+10  | What is safe to share      | Order, date, amount             | No
+
+DEMO NOTE: Fictional scenarios for retrieval and coaching demos only.

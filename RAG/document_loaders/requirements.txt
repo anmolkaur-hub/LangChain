@@ -1,0 +1,16 @@
+langchain
+langchain-core
+langchain-community
+langchain-apify
+pypdf
+pymupdf
+
+
+langchain-docling
+docling-slim[format-pdf-docling]
+
+torch
+torchvision
+
+beautifulsoup4
+requests
